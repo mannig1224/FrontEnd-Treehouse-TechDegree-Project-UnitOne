@@ -68,12 +68,26 @@ function printQuote() {
   document.getElementById('quote-box').innerHTML=string;
 
 }
+/***
+  The changeColor function will create a hexadecimal string that we then add to the css style property of 'loadQuote'
+***/
+function changeColor() {
+   var symbols = "0123456789ABCDEF";
+   var color = "#";
+
+   for (var i = 0; i < 6; i++){
+     color += symbols[Math.floor(Math.random() * 16)];
+   }
+   document.body.style.background = color;
+   document.getElementById('loadQuote').style.background = color;
 
 
+}
 /***
   listens to the button to be clicked on and calls the printQuote() function
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", changeColor, false);
 
 
