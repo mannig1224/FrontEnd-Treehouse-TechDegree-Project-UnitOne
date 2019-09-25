@@ -86,8 +86,24 @@ function changeColor() {
 /***
   listens to the button to be clicked on and calls the printQuote() function
 ***/
-
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-document.getElementById('loadQuote').addEventListener("click", changeColor, false);
+    
 
 
+
+
+
+  document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+  document.getElementById('loadQuote').addEventListener("click", changeColor, false);
+
+
+  let quoteTimer = setInterval('printQuote();', 3000);
+  let colorTimer = setInterval('changeColor();', 3000);
+
+  if(document.getElementById('loadQuote').onclick == true){
+    console.log("in function");
+    clearInterval(quoteTimer);
+    clearInterval(colorTimer);
+
+     quoteTimer = setInterval('printQuote();', 3000);
+     colorTimer = setInterval('changeColor();', 3000);
+  }
