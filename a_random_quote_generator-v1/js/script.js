@@ -50,7 +50,17 @@ function getRandomQuote() {
 };
 
 /***
-  The printQuote() function will call the getRandomQuote() function and then print it out to the html
+  Every 3 seconds the quote and color functions will be called if the button isn't clicked.
+***/
+
+let quoteTimer = setInterval('printQuote();', 3000);
+let colorTimer = setInterval('changeColor();', 3000);
+
+
+
+/***
+  The printQuote() function will call the getRandomQuote() function and then print it out to the html. This function
+  also resets the timers.
 ***/
 
 function printQuote() {
@@ -66,6 +76,12 @@ function printQuote() {
   }
   string += '</p>';
   document.getElementById('quote-box').innerHTML=string;
+
+    clearInterval(quoteTimer);
+    clearInterval(colorTimer);
+
+     quoteTimer = setInterval('printQuote();', 3000);
+     colorTimer = setInterval('changeColor();', 3000);
 
 }
 /***
@@ -88,22 +104,8 @@ function changeColor() {
 ***/
     
 
-
-
-
-
   document.getElementById('loadQuote').addEventListener("click", printQuote, false);
   document.getElementById('loadQuote').addEventListener("click", changeColor, false);
 
 
-  let quoteTimer = setInterval('printQuote();', 3000);
-  let colorTimer = setInterval('changeColor();', 3000);
-
-  if(document.getElementById('loadQuote').onclick === true){
-    console.log("inside the function");
-    clearInterval(quoteTimer);
-    clearInterval(colorTimer);
-
-     quoteTimer = setInterval('printQuote();', 3000);
-     colorTimer = setInterval('changeColor();', 3000);
-  }
+  
