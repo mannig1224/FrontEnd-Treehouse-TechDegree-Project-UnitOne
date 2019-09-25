@@ -99,8 +99,8 @@ function changeColor() {
   let quoteTimer = setInterval('printQuote();', 3000);
   let colorTimer = setInterval('changeColor();', 3000);
 
-  if(document.getElementById('loadQuote').onclick == true){
-    console.log("in function");
+  if(document.getElementById('loadQuote').onclick === true){
+    console.log("inside the function");
     clearInterval(quoteTimer);
     clearInterval(colorTimer);
 
